@@ -1,4 +1,4 @@
-# refify - replace circular references with JSON pointers
+# refify
 
 ## Synopsis
 
