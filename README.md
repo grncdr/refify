@@ -27,3 +27,5 @@ is already supported by other tools. A simple example:
 ## License
 
 MIT
+
+[json_ref]: http://tools.ietf.org/id/draft-pbryan-zyp-json-ref-03.html
