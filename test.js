@@ -1,21 +1,39 @@
 var test = require('tape');
 var refify = require('./');
 
-test('Round trip stringify and parse', function (t) {
+test('Simple stringify', function (t) {
+  var o = {};
+  o.o = o;
+  t.equal('{"o":{"$ref":"#/"}}', refify.stringify(o));
+  t.end();
+})
+
+test('Simple parse', function (t) {
+  var o = refify.parse('{"o":{"$ref":"#/"}}');
+  t.equal(o, o.o)
+  t.end();
+})
+
+test('deep set', function (t) {
+  var o = {};
+  var p = ['blah', 0, 'ok'];
+  refify.set(o, p, 12);
+  t.deepEqual(o, {blah: [{ok: 12}]})
+  t.end()
+})
+
+test('Indirect references', function (t) {
   var o = {
-    array: [],
-    object: {}
+    a: [],
+    o2: {}
   }
 
-  o.array[0] = o
-  o.object.circular = o;
-  o.object.circular.array[1] = o.object
+  o.a[0] = o.o2;
+  o.o2.o = o;
 
-  var s = refify.stringify(o);
-  var c = refify.parse(s);
-
-  t.equal(c, c.array[0], 'Circular reference in array');
-  t.equal(c, c.object.circular, 'Circular reference in object');
-  t.equal(c.object, c.object.circular.array[1], 'Indirect circular reference');
-  t.end()
+  t.deepEqual(refify(o), {a: [{o: {$ref: "#/"}}], o2: {$ref: "#/a/0"}});
+  var c = refify.parse(refify(o));
+  t.equal(c.o2.o, c);
+  t.equal(c.a[0], c.o2);
+  t.end();
 })
