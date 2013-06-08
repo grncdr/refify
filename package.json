@@ -1,0 +1,28 @@
+{
+  "name": "refify",
+  "version": "0.0.0",
+  "description": "Safely stringify & parse circular references to & from JSON using JSON pointers",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grncdr/refify.git"
+  },
+  "keywords": [
+    "JSON",
+    "circular",
+    "JSON path",
+    "pointer",
+    "JSON pointer",
+  ],
+  "author": "Stephen Sugden <me@stephensugden.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "~1.0.3"
+  },
+  "dependencies": {
+    "traverse": "~0.6.3"
+  }
+}
