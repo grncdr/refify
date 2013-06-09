@@ -18,7 +18,7 @@ refify.parse('{"o":{"$ref":"#/"}}') //=> {circular: [Circular]}
 This module allows you to safely `JSON.stringify` objects with circular
 references. Circular references are replaced with document-relative
 [JSON references][json_ref]. This provides a clear and unambiguous encoding that
-is already supported by other tools. A simple example:
+is already supported by other tools.
 
 ## Install
 
