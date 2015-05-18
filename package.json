@@ -2,7 +2,7 @@
   "name": "refify",
   "version": "0.0.1",
   "description": "Safely stringify & parse circular references to & from JSON using JSON pointers",
-  "main": "index.js",
+  "main": "refify.js",
   "scripts": {
     "test": "node test.js"
   },
