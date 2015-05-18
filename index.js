@@ -1,4 +1,13 @@
-module.exports = refify
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['refify'], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    // Browser globals (root is window)
+    root.refify = factory();
+  }
+}(this, function () {
 
 function refify(obj) {
   var objs = [];
@@ -89,6 +98,7 @@ function get(obj, path) {
 }
 
 refify.set = set;
+
 function set(obj, path, value) {
   if (path.length === 0) throw new Error("Cannot replace root object");
   var key = path.shift();
@@ -112,3 +122,7 @@ function initCopy(obj) {
   if (typeof obj !== 'object') return obj;
   return Array.isArray(obj) ? [] : {}
 }
+
+return refify;
+
+}));
