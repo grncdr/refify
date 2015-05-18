@@ -1,6 +1,6 @@
 {
   "name": "refify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Safely stringify & parse circular references to & from JSON using JSON pointers",
   "main": "refify.js",
   "scripts": {
