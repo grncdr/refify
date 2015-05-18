@@ -22,7 +22,9 @@ is already supported by other tools.
 
 ## Install
 
-    npm install refify
+Refify uses a universal module definition, this means you can load it using whatever module system you like: CommonJS, AMD, or none at all.
+
+If there is no module loader detected (e.g. you just have a plain `<script src="refify.js"></script>` in your HTML), `refify` will be defined globally.
 
 ## License
 
