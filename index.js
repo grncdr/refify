@@ -1,4 +1,10 @@
-module.exports = refify
+(function(obj){
+  if( typeof exports === 'undefined' ) {
+    obj.refify = refify;
+  } else {
+    module.exports = refify;
+  }
+
 
 function refify(obj) {
   var objs = [];
@@ -112,3 +118,5 @@ function initCopy(obj) {
   if (typeof obj !== 'object') return obj;
   return Array.isArray(obj) ? [] : {}
 }
+
+}(this));
