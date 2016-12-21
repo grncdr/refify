@@ -37,3 +37,8 @@ test('Indirect references', function (t) {
   t.equal(c.a[0], c.o2);
   t.end();
 })
+
+test('Nulls', function (t) {
+  var o = { x: null }
+  t.equal(refify.parse(refify(o)).x, o.x)
+})
