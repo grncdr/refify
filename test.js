@@ -41,4 +41,5 @@ test('Indirect references', function (t) {
 test('Nulls', function (t) {
   var o = { x: null }
   t.equal(refify.stringify(o), '{"x":null}')
+  t.end()
 })

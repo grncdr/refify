@@ -19,7 +19,7 @@ function refify(obj) {
   return walk(obj);
 
   function walk(it) {
-    if (typeof it !== 'object') {
+    if (typeof it !== 'object' || it == null) {
       return it;
     }
     objs.push(it);
